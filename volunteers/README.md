@@ -1,0 +1,1 @@
+![Voluntarius](./src/assets/images/Voluntarius-Large.png)
