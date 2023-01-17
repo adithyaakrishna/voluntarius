@@ -222,6 +222,13 @@ const MENU_ITEMS: MenuItemTypes[] = [
     //         },
     //     ],
     // },
+    {
+        key: 'forms',
+        label: 'NGO Registration',
+        isTitle: false,
+        icon: 'bookmark',
+        url: 'forms/basic'
+    },
     // {
     //     key: 'forms',
     //     label: 'Forms',

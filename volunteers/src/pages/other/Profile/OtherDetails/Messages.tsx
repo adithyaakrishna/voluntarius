@@ -1,9 +1,63 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import classNames from 'classnames';
+import { Row, Col, Card } from 'react-bootstrap';
 
 // types
 import { MessageTypes } from './data';
+
+import { records as data } from './tableData';
+import Table from '../../../../components/Table';
+
+const columns = [
+    {
+        Header: 'Sl No.',
+        accessor: 'slno',
+        sort: true,
+    },
+    {
+        Header: 'NGO',
+        accessor: 'ngo',
+        sort: true,
+    },
+    {
+        Header: 'Task',
+        accessor: 'task',
+        sort: false,
+    },
+    {
+        Header: 'Status',
+        accessor: 'status',
+        sort: true,
+    },
+    {
+        Header: 'Hours',
+        accessor: 'hours',
+        sort: false,
+    },
+    {
+        Header: 'Coins',
+        accessor: 'coins',
+        sort: false,
+    },
+];
+
+const sizePerPageList = [
+    {
+        text: '5',
+        value: 5,
+    },
+    {
+        text: '10',
+        value: 10,
+    },
+    {
+        text: '25',
+        value: 25,
+    },
+    {
+        text: 'All',
+        value: data.length,
+    },
+];
 
 interface MessagesProps {
     messages: MessageTypes[];
@@ -12,45 +66,26 @@ interface MessagesProps {
 const Messages = ({ messages }: MessagesProps) => {
     return (
         <>
-            <h4 className="mt-1 fs-15 fw-bold text-uppercase">Messages</h4>
-            <ul className="list-unstyled">
-                {(messages || []).map((message, index) => {
-                    return (
-                        <li
-                            key={index}
-                            className={classNames('py-2', { 'border-bottom': index < messages.length - 1 })}>
-                            <div className="d-flex">
-                                {message.avatar && (
-                                    <div className="me-3 flex-shrink-0">
-                                        <img src={message.avatar} alt="" className="avatar-md rounded-circle" />
-                                    </div>
-                                )}
-                                {!message.avatar && (
-                                    <div className="avatar-md rounded-circle bg-soft-primary me-3 flex-shrink-0">
-                                        <span className="fs-18 avatar-title text-primary fw-semibold">
-                                            {message.userName![0]}
-                                        </span>
-                                    </div>
-                                )}
-                                <div className="flex-grow-1 overflow-hidden">
-                                    <h5 className="fs-15 mt-2 mb-1">
-                                        <Link to="#" className="text-dark">
-                                            {message.userName}
-                                        </Link>
-                                    </h5>
-                                    <p className="text-muted fs-13 text-truncate mb-0">{message.text}</p>
-                                </div>
-                            </div>
-                        </li>
-                    );
-                })}
-            </ul>
+            <Row>
+                <Col>
+                    <Card>
+                        <Card.Body>
+                            <h4 className="header-title">All Opportunities</h4>
+                            <p className="text-muted fs-14 mb-4">Browse</p>
 
-            <div className="text-center">
-                <Link to="#" className="btn btn-primary btn-sm">
-                    Load more
-                </Link>
-            </div>
+                            <Table
+                                columns={columns}
+                                data={data}
+                                pageSize={5}
+                                sizePerPageList={sizePerPageList}
+                                isSortable={true}
+                                pagination={true}
+                                isSearchable={true}
+                            />
+                        </Card.Body>
+                    </Card>
+                </Col>
+            </Row>
         </>
     );
 };

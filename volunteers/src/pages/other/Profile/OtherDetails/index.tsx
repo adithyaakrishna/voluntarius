@@ -6,16 +6,15 @@ import Activity from './Activity';
 import Messages from './Messages';
 import Projects from './Projects';
 import Tasks from './Tasks';
-import Files from './Files';
 
 // dummy data
 import { projects } from '../../../apps/Projects/data';
 import { todayTasks, upcomingTasks } from '../../../apps/Tasks/List/data';
 
-import { activityTimeline, messages, files } from './data';
+import { activityTimeline, messages } from './data';
 
 const OtherDetails = () => {
-    const [activeTab, setactiveTab] = useState<string>('activity');
+    const [activeTab, setactiveTab] = useState<string>('messages');
 
     /**
      * handles tab activation
@@ -36,10 +35,7 @@ const OtherDetails = () => {
                     activeKey={activeTab}
                     onSelect={handleSelect}>
                     <Nav.Item as="li">
-                        <Nav.Link eventKey="activity">Activity</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item as="li">
-                        <Nav.Link eventKey="messages">Messages</Nav.Link>
+                        <Nav.Link eventKey="messages">Opportunities</Nav.Link>
                     </Nav.Item>
                     <Nav.Item as="li">
                         <Nav.Link eventKey="projects">Projects</Nav.Link>
@@ -48,7 +44,7 @@ const OtherDetails = () => {
                         <Nav.Link eventKey="tasks">Tasks</Nav.Link>
                     </Nav.Item>
                     <Nav.Item as="li">
-                        <Nav.Link eventKey="files">Files</Nav.Link>
+                        <Nav.Link eventKey="activity">Activity</Nav.Link>
                     </Nav.Item>
                 </Nav>
 
@@ -64,9 +60,6 @@ const OtherDetails = () => {
                     </Tab.Pane>
                     <Tab.Pane active={activeTab === 'tasks'} eventKey="tasks">
                         <Tasks tasks={[...todayTasks, ...upcomingTasks]} />
-                    </Tab.Pane>
-                    <Tab.Pane active={activeTab === 'files'} eventKey="files">
-                        <Files files={files} />
                     </Tab.Pane>
                 </Tab.Content>
             </Card.Body>

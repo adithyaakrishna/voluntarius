@@ -31,24 +31,6 @@ interface UserData {
     password: string;
 }
 
-/* bottom links */
-const BottomLink = () => {
-    const { t } = useTranslation();
-
-    return (
-        <Row className="mt-3">
-            <Col xs={12} className="text-center">
-                <p className="text-muted">
-                    {t("Don't have an account?")}{' '}
-                    <Link to={'/auth/register'} className="text-primary fw-bold ms-1">
-                        {t('Sign Up')}
-                    </Link>
-                </p>
-            </Col>
-        </Row>
-    );
-};
-
 const Login = () => {
     const { t } = useTranslation();
     const dispatch = useDispatch<AppDispatch>();
@@ -89,7 +71,7 @@ const Login = () => {
         <>
             {userLoggedIn || user ? <Redirect to={redirectUrl}></Redirect> : null}
 
-            <AuthLayout bottomLinks={<BottomLink />}>
+            <AuthLayout>
                 <div className="auth-logo mx-auto">
                     <Link to="/" className="logo logo-dark text-center">
                         <span className="logo-lg">

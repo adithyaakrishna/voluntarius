@@ -148,6 +148,13 @@ const MENU_ITEMS: MenuItemTypes[] = [
                 url: '/pages/activity',
                 parentKey: 'extra-pages',
             },
+            {
+                key: 'forms',
+                label: 'NGO Registration',
+                isTitle: false,
+                url: '/forms/basic',
+                parentKey: 'extra-pages',
+            },
             // {
             //     key: 'page-invoice',
             //     label: 'Invoice',

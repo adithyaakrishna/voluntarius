@@ -407,8 +407,6 @@ const WizardWithFormValidation = () => {
     return (
         <Card>
             <Card.Body>
-                <h4 className="header-title mb-3">Wizard with Validation</h4>
-
                 <Wizard
                     render={({ step, steps }) => (
                         <React.Fragment>
@@ -560,10 +558,10 @@ const FormWizard = () => {
                     { label: 'Forms', path: '/ui/forms/wizard' },
                     { label: 'Form Wizard', path: '/ui/forms/wizard', active: true },
                 ]}
-                title={'Form Wizard'}
+                title={'NGO Registration Form'}
             />
 
-            <Row>
+            {/* <Row>
                 <Col xl={6}>
                     <BasicWizard />
                 </Col>
@@ -571,10 +569,10 @@ const FormWizard = () => {
                 <Col xl={6}>
                     <WizardWithProgressbar />
                 </Col>
-            </Row>
+            </Row> */}
 
             <Row>
-                <Col lg={6}>
+                <Col lg={12}>
                     <WizardWithFormValidation />
                 </Col>
             </Row>
