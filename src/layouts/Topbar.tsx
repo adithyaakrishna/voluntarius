@@ -14,15 +14,9 @@ import { RootState, AppDispatch } from '../redux/store';
 import { LayoutTypes, SideBarTypes } from '../constants/layout';
 
 // components
-import TopbarSearch from '../components/TopbarSearch';
 import MaximizeScreen from '../components/MaximizeScreen';
-import AppsDropdown from '../components/AppsDropdown/';
-import SearchDropdown from '../components/SearchDropdown';
-import LanguageDropdown from '../components/LanguageDropdown';
 import NotificationDropdown from '../components/NotificationDropdown';
 import ProfileDropdown from '../components/ProfileDropdown';
-import CreateNew from '../components/CreateNew';
-
 // images
 import profilePic from '../assets/images/users/avatar-1.jpg';
 import avatar4 from '../assets/images/users/avatar-4.jpg';
@@ -102,56 +96,6 @@ const ProfileMenus = [
     },
 ];
 
-// dummy search results
-const SearchResults = [
-    {
-        id: 1,
-        title: 'Analytics Report',
-        icon: 'uil-notes',
-        redirectTo: '/',
-    },
-    {
-        id: 2,
-        title: 'How can I help you?',
-        icon: 'uil-life-ring',
-        redirectTo: '/',
-    },
-    {
-        id: 3,
-        icon: 'uil-cog',
-        title: 'User profile settings',
-        redirectTo: '/',
-    },
-];
-
-const otherOptions = [
-    {
-        id: 1,
-        label: 'New Projects',
-        icon: 'uil uil-bag',
-    },
-    {
-        id: 2,
-        label: 'Create Users',
-        icon: 'uil uil-user-plus',
-    },
-    {
-        id: 3,
-        label: 'Revenue Report',
-        icon: 'uil uil-chart-pie',
-    },
-    {
-        id: 4,
-        label: 'Settings',
-        icon: 'uil uil-cog',
-    },
-    {
-        id: 4,
-        label: 'Help & Support',
-        icon: 'uil uil-question-circle',
-    },
-];
-
 interface TopbarProps {
     hideLogo?: boolean;
     navCssClasses?: string;
@@ -222,21 +166,8 @@ const Topbar = ({ hideLogo, navCssClasses, openLeftMenuCallBack, topbarDark }: T
                     )}
 
                     <ul className="list-unstyled topnav-menu float-end mb-0">
-                        <li className="d-none d-lg-block">
-                            <TopbarSearch items={SearchResults} />
-                        </li>
-
-                        <li className="dropdown d-inline-block d-lg-none">
-                            <SearchDropdown />
-                        </li>
                         <li className="dropdown d-none d-lg-inline-block">
                             <MaximizeScreen />
-                        </li>
-                        <li className="dropdown d-none d-lg-inline-block topbar-dropdown">
-                            <AppsDropdown />
-                        </li>
-                        <li className="dropdown d-none d-lg-inline-block topbar-dropdown">
-                            <LanguageDropdown />
                         </li>
                         <li className="dropdown notification-list topbar-dropdown">
                             <NotificationDropdown notifications={Notifications} />
@@ -285,10 +216,6 @@ const Topbar = ({ hideLogo, navCssClasses, openLeftMenuCallBack, topbarDark }: T
                                     <span></span>
                                 </div>
                             </Link>
-                        </li>
-
-                        <li className="dropdown d-none d-xl-block">
-                            <CreateNew otherOptions={otherOptions} />
                         </li>
                     </ul>
                 </div>

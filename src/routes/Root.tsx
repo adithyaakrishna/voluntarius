@@ -13,7 +13,7 @@ const Root = () => {
         if (api.isUserAuthenticated() === false) {
             url = 'auth/login';
         } else {
-            url = 'dashboard/home';
+            url = 'pages/profile';
         }
         return url;
     };

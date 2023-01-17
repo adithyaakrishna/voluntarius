@@ -106,7 +106,7 @@ const Login = () => {
 
                 <h6 className="h5 mb-0 mt-3">{t('Welcome back!')}</h6>
                 <p className="text-muted mt-1 mb-4">
-                    {t('Enter your email address and password to access admin dashboard.')}
+                    {t('Enter your email address and password :)')}
                 </p>
 
                 {error && (
